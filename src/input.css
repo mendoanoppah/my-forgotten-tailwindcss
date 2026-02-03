@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+.btn-primary {
+  @apply bg-emerald-500 text-white px-4 py-2 rounded-lg hover:bg-blue-500;
+}
+
+.btn-primary2 {
+  @apply bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-blue-500;
+}
+
+/* Bikin kolom sebanyak mungkin yang muat, minimal 200px, sisanya 1fr */
+.auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fi, minmax(200px, 1fr));
+}
+

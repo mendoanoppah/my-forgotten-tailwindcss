@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FR di Tailwindcss</title>
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body>
+    <!-- 2 kolom sama rata -->
+    <!-- <div class="bg-emerald-300 grid grid-cols-2 gap-4">
+      <div>Kolom 1 (1fr)</div>
+      <div>Kolom 2 (1fr)</div>
+    </div> -->
+
+    <!-- 3 kolom sama rata -->
+    <!-- <div class="bg-emerald-300 grid grid-cols-3 gap-4">
+      <div>1/3 (1fr)</div>
+      <div>1/3 (1fr)</div>
+      <div>1/3 (1fr)</div>
+     </div> -->
+
+    <!-- Custom fr dengan arbitrary values -->
+    <!-- <div class="bg-emerald-300 grid grid-cols-[200px_1fr] gap-4">
+      <div class="bg-emerald-500">Sidebar 200px</div>
+      <div class="bg-indigo-300">Content (1fr)</div>
+    </div> -->
+
+    <!-- <div class="bg-emerald-300 grid grid-cols-[1fr_2fr_1fr] gap-4">
+      <div class="bg-blue-300">Small (1fr)</div>
+      <div class="bg-blue-300">Big (2fr)</div>
+      <div class="bg-blue-300">Small (1fr)</div>
+    </div> -->
+
+    <!-- CONTOH PERHUNGAN FR -->
+    <!-- <div class="w-[1000px] bg-emerald-300 grid grid-cols-[100px_1fr_2fr] gap-5">
+      <div class="bg-blue-300">Content 1</div>
+      <div class="bg-blue-300">Content 2</div>
+      <div class="bg-blue-300">Content 3</div>
+    </div> -->
+
+    <!-- TIPS & TRIk -->
+    <!-- 1. Kombinasi fr + auto -->
+
+    <!-- <div class="bg-emerald-300 grid grid-cols-[auto_1fr_auto]">
+      <div class="">Content 1</div>
+      <div class="bg-emerald-500">Content 2</div>
+      <div class="">Content 3</div>
+    </div> -->
+
+    <!-- 3. Responsive dengan fr -->
+    <!-- Mobile: 1 Kolom, Tablet: 2 Kolom, Dekstop: Sidebar + Content -->
+    <!-- <div
+      class="bg-emerald-300 grid grid-cols-1 md:grid-cols-[1fr_1fr] lg:grid-cols-[250px_1fr] lg:text-5xl"
+    >
+      <div class="bg-blue-300">Content 1</div>
+      <div class="bg-blue-300">Content 2</div>
+      <div class="bg-blue-300">Content 3</div>
+    </div> -->
+
+    <!-- Using px(pixel) -->
+    <!-- <div class="bg-emerald-300 w-[600px] grid grid-cols-[200px_200px_200px]">
+      <div class="bg-blue-300">Content - 1</div>
+      <div class="bg-blue-300">Content - 2</div>
+      <div class="bg-blue-300">Content - 3</div>
+    </div> -->
+
+    <!-- Using Persen(%) -->
+    <!-- <div class="bg-emerald-300 w-[600px] grid grid-cols-[33.33%_33.33%_33.34%]">
+      <div class="bg-blue-300">Content - 1</div>
+      <div class="bg-blue-300">Content - 2</div>
+      <div class="bg-blue-300">Content - 3</div>
+    </div> -->
+
+    <!-- Using fr(fraction) -->
+    <!-- <div class="bg-emerald-300 w-[600px] grid grid-cols-[1fr_1fr_1fr]">
+      <div class="bg-blue-300">Content - 1</div>
+      <div class="bg-blue-300">Content - 2</div>
+      <div class="bg-blue-300">Content - 3</div>
+    </div> -->
+
+    <!-- Nyoba -->
+    <!-- <div class="bg-emerald-300 w-[600px] grid grid-cols-2">
+      <div class="bg-blue-300">Content - 1</div>
+      <div class="bg-blue-300">Content - 2</div>
+      <div class="bg-blue-300">Content - 3</div>
+    </div> -->
+
+    <!-- GRID ROWS -->
+    <!-- <div
+      class="bg-emerald-300 h-[300px] w-[600px] grid grid-rows-[1fr_2fr_1fr] text-center"
+    >
+      <div class="bg-blue-300">Baris - 1</div>
+      <div class="bg-red-300">Baris - 2</div>
+      <div class="bg-green-300">Baris - 3</div>
+    </div> -->
+
+    <!-- COLS + ROWS -->
+
+    <!-- 2x2 -->
+    <div
+      class="flex items-center justify-center h-screen bg-linear-210 from-indigo-300 via-pink-300 to-gray-300 shadow-lg"
+    >
+      <div class="h-[500px] w-[500px] grid grid-cols-2 grid-rows-2 text-center">
+        <div class="bg-red-300">Baris - 1</div>
+        <div class="bg-blue-300">Baris - 2</div>
+        <div class="bg-green-300">Baris - 2</div>
+        <div class="bg-orange-300">Baris - 2</div>
+      </div>
+    </div>
+  </body>
+</html>

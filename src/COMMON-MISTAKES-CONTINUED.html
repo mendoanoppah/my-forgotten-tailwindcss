@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COMMON MISTAKES CONTINUED</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <!-- #1 -->
+    <!-- Consistent Spacing -->
+    <!-- <div class="space-y-6">
+      <div>Section 1</div>
+      <div>Section 2</div>
+      <div>Section 3</div>
+    </div>
+
+    <div class="space-x-4">
+      <button>Cancel</button>
+      <button>save</button>
+    </div> -->
+
+    <!-- #2 -->
+    <!-- Container with Padding -->
+    <!-- <div class="bg-red-400 container mx-auto px-4 md:px-6 lg:px-8">
+      reesponsive padding
+    </div> -->
+
+    <!-- KESALAHAN UMUM LANJUTAN -->
+    <!-- #1 -->
+    <!-- Gap vs Space vs Margin -->
+
+    <!-- WRONG, pake margin di tiap child -->
+    <!-- <div class="flex">
+      <div class="mr-4">Item 1</div>
+      <div class="mr-4">Item 2</div>
+      <div>Item 3</div>
+      <!--lupa margin di terakhir --
+    </div> -->
+
+    <!-- CORRECT, pake gap di parent -->
+    <!-- <div class="flex gap-4">
+      <div>Item 1</div>
+      <div>Item 2</div>
+      <div>Item 3</div>
+    </div> -->
+
+    <!-- #2 -->
+    <!-- Overflow di Parent -->
+    <!-- ❌ SALAH - child keluar dari parent -->
+    <!-- <div class="w-64"> <!-- Fixed width --
+      <div class="w-96"> <!-- lebih lebar dr parent --
+        Content Overflow
+      </div>
+     </div> -->
+
+    <!-- ✅ BENAR -->
+    <!-- <div class="bg-blue-400 w-64 overflow-hidden">
+      <!-- potong yg kluar --
+      <div class="bg-amber-400 w-96">Content terpotong rapi</div>
+    </div> -->
+
+    <!-- OR -->
+    <!-- <div class="w-64 overflow-x-auto">
+      <!-- scroll horizontal --
+      <div class="bg-amber-400 w-96">Content bisa discroll</div>
+    </div> -->
+
+    <!-- FIXED HEIGHT TANPA OVERFLOW -->
+
+    <!-- SALAH - CONTENT OVERFLOW KELUAR -->
+    <!-- <div class="bg-emerald-300 h-64">
+      <p class="text-base">Very long content...</p>
+    </div> -->
+
+    <!-- BTUl -->
+    <!-- <div class="bg-emerald-300 h-64 overflow-y-auto">
+      <p class="text-base">aVery long content...</p>
+    </div> -->
+
+    <!-- ABSOULTE TANPA RELATIVE PARENT -->
+
+    <!-- SALAH -->
+    <!-- <div>
+      <div class="absolute top-0 right-0">
+        <!-- Relative ke viewport--
+        Badge
+      </div>
+    </div> -->
+
+    <!-- BENAR -->
+    <!-- <div class="relative"> <!-- reference parent/point --
+      <div class="absolute top-0 right-0"> <!-- relative ke parent/point--
+        Badge
+      </div>
+     </div> -->
+
+    <!-- FLEX + WIDTH YANG KONFLIK -->
+
+    <!-- SALAH - WIDTH VS FLEX-1 BENTROK -->
+    <!-- <div class="flex">
+      <div class="flex-1 w-64">Confusing</div> <!-- mana yg dipake?--
+    </div> -->
+
+    <!-- BENAR -->
+    <!-- PILIH SALAH SATU -->
+    <!-- <div class="flex">
+      <div class="flex-1">
+        <!-- grow to fill --
+        Flexible
+      </div>
+    </div> -->
+
+    <!-- atau -->
+    <!-- <div class="flex">
+      <div class="w-64">
+        <!--fixed 256px--
+        Fixed
+      </div>
+    </div> -->
+
+    <!-- TEXT TRUNCATE TANPA WIDTH -->
+
+    <!-- SALAH - GA JALAN -->
+    <!-- <p class="truncate">Very long text that should be truncated...</p> -->
+
+    <!-- BENAR  -->
+
+    <!-- <p class="truncate w-64">Very long text that should be truncated</p> -->
+
+    <!-- atau diblock element -->
+    <!-- <div class="w-full">
+      <p class="truncate">Very long text that should be truncated Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, deserunt consequuntur. Pariatur reiciendis expedita praesentium dolores, quis fugiat labore provident eum voluptas, ea ipsum velit necessitatibus sunt totam ratione officia.
+      Tempora repellendus libero harum, culpa earum quidem dolorem et adipisci ducimus dolore quibusdam a sequi accusamus animi nam, quis iste quaerat, nobis cum molestias consequatur amet sunt autem atque. Deleniti!
+      Nemo ea officia corrupti in perferendis reprehenderit odit voluptatibus explicabo assumenda consequuntur sit veniam iure soluta totam suscipit, mollitia dolorem. Illo iusto eligendi ad corrupti unde vel dolor illum non.
+      Modi ab nam tempora ea repudiandae. Dolorem aliquid neque omnis expedita, tempore officia, sunt recusandae laboriosam fuga commodi culpa, libero earum quis quaerat accusamus dignissimos qui quibusdam quia? Autem, consectetur?</p>
+    </div> -->
+
+    <!-- MIN-HEIGHT vs HEIGHT -->
+
+    <!-- SALAH - CONTENT TERPOTONG KLAU LEBIH dRI 500px -->
+    <!-- <div class="bg-emerald-300 h-125">
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, est
+        labore laboriosam veritatis deserunt omnis accusamus eaque quod facilis
+        temporibus, dolor obcaecati neque quibusdam iure consequatur tempora
+        numquam, quisquam quidem. At hic exercitationem quis consequuntur sequi.
+        In vel pariatur sunt, dolorum recusandae tempore aspernatur commodi ab
+        aut adipisci hic saepe cum dolor obcaecati praesentium facere illum
+        labore provident possimus fugit. Ducimus voluptatem est, adipisci
+        deleniti esse dolorum numquam eos ab molestias magni maxime tempore sed,
+        porro aperiam odit excepturi exercitationem voluptates quas consectetur.
+        Repellendus fugiat, accusantium magnam voluptas et praesentium. Est quis
+        consequatur aperiam tenetur delectus perferendis, molestias eum earum!
+        Ullam quasi aspernatur eius necessitatibus inventore amet dicta ex,
+        libero ipsa possimus ab omnis provident dolores impedit blanditiis,
+        excepturi ad? Perspiciatis, in non officiis inventore rem illo corrupti
+        aspernatur veniam dolor voluptates ab sit optio iure. Harum vitae illo
+        repudiandae, maxime quas fugiat tempore, ab incidunt odit aliquam natus
+        recusandae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem inventore ad nam dicta, consequatur distinctio pariatur sapiente unde eius dolor architecto! Soluta incidunt voluptatibus assumenda, amet dicta qui aliquid sed!
+        Quidem est in perferendis ullam consequuntur vero minus laborum qui quos. Ex illum nihil, aspernatur dolorum animi magni repudiandae ipsam maiores sint fugit harum deleniti. Quas quidem saepe sit sunt.
+        Cumque voluptas rerum soluta vitae voluptatum maxime deserunt iste iusto, quibusdam provident nostrum itaque nemo dolores officiis quo aliquid dignissimos necessitatibus maiores. Cupiditate ducimus omnis error quia sint temporibus labore?
+        Inventore nemo unde, aliquam expedita voluptatem ducimus veniam commodi facilis voluptatum ullam repudiandae totam, eius, suscipit quibusdam cumque alias rerum assumenda modi explicabo! Ipsam enim vel porro possimus sint nesciunt?
+        Temporibus minima eum, quia voluptate vitae illum assumenda voluptas omnis ut officiis dolore ducimus nisi, saepe obcaecati sint reiciendis aut beatae veritatis tempora ipsam recusandae porro aspernatur facilis. Non, esse.
+        Repellendus quos distinctio accusantium eius doloremque a velit, consectetur reprehenderit voluptate mollitia beatae atque. Numquam maxime culpa, doloremque laudantium ut, perspiciatis voluptas aliquam modi nisi odio quibusdam, vero est labore.
+        Distinctio aperiam, cupiditate et error accusantium dolorem corrupti praesentium consectetur voluptatem fugit nisi totam voluptatibus, at enim aliquid possimus ratione, optio cumque culpa dolore doloremque aspernatur voluptas illum reiciendis. Quasi?
+        Nisi tempora fuga voluptates molestiae sunt? Asperiores animi, aut eos culpa deserunt eius quaerat suscipit tenetur officia, totam amet! Maxime itaque veniam adipisci placeat libero a sapiente reiciendis aperiam aut.
+        Officia voluptas recusandae quis enim ipsa, sint, est tempore, perferendis vitae ipsam quibusdam debitis ea? Eos doloribus nobis ab, aperiam beatae molestias sunt nam impedit ea a repellat, dicta nemo?
+        Explicabo consequatur cumque, porro eos nemo quod esse commodi facere doloremque officiis nostrum architecto? Ut minus quae tempore harum nam nulla. Ea magnam aperiam ipsa blanditiis modi voluptas facilis consequuntur?
+      </p>
+    </div> -->
+
+    <!-- BENAR - minimal 500px, bisa lebih -->
+    <!-- <div class="bg-emerald-300 min-h-125">
+      <p>
+        voluptatum officiis eveniet voluptate enim. Esse voluptas cumque
+        officiis reprehenderit? Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Libero commodi nisi, sed, animi architecto deleniti
+        sit dolores nam consectetur repudiandae ratione! Ea reprehenderit saepe
+        in eius magni totam at atque? Fugit obcaecati, explicabo mollitia nisi
+        cumque quo provident. Eveniet labore, nisi vitae tempora soluta aliquam
+        mollitia dolorum laboriosam quidem temporibus similique excepturi! Vitae
+        in iste pariatur. Dignissimos impedit consequuntur vitae! Libero
+        mollitia accusantium dolore atque, odio adipisci eum reprehenderit.
+        Consequuntur, ex necessitatibus facilis nam perspiciatis sequi nobis
+        eaque ducimus beatae vel veritatis quibusdam, voluptatem, debitis
+        laudantium quas reprehenderit hic iure!
+      </p>
+      <!--aman--
+    </div> -->
+
+    <!-- ASPECT RATIO UNTUK IMAGES -->
+    <!-- SALAH - IMAGE TERDISTORSI -->
+    <!-- <img src="../public/img1.png" class="w-full h-64"> -->
+
+    <!-- BTUL - MAINTAIN ASPECT RATIO -->
+    <!-- <div class="relative w-full h-64">
+      <img src="../public/img1.png" class="w-full h-full object-cover" />
+    </div> -->
+
+    <!-- OR PKE AsPECT-RATIO -->
+    <!-- <img src="../public/img1.png" class="w-full aspect-video object-cover"> -->
+
+    <!-- Z-INDEX TANPA POSITION-->
+    <!-- SALAH - z-index ga NGEFEK -->
+
+    <!-- <div class="z-50">Won't Work</div> -->
+
+    <!-- BENAR - BUTUH POSITION -->
+    <!-- <div class="relative z-50">Works!</div> -->
+
+    <!-- RESPONSIVE HIDDEN/SHOW -->
+    <!-- SALAH - SEMBUNYIIN DI MOBILE TPI LUPA MUNCULIN DI DEKSTOP -->
+
+    <!-- <div class="hidden">Always Hidden</div> -->
+
+    <!-- BENAR -->
+
+    <!-- <div class="hidden md:block">Dekstop Only</div> -->
+
+    <!-- <div class="block md:hidden">Mobile Only 1</div> -->
+
+    <!-- PADDING + BORDER = Width Berubah -->
+
+    <!-- SALAH - width jadi lebih dari 256px -->
+
+    <!-- <div class="bg-emerald-300 w-64 p-4 border-2">kotak</div> -->
+
+    <!-- BENAR - use box border -->
+    <!-- <div class="bg-emerald-300 w-64 border-2 p-4 box-border">kotak</div> -->
+
+    <!-- TRANSITION TANPA DURATION -->
+
+    <!-- SALAH - transition tidk smooth -->
+    <!-- <div class="bg-emerald-500 hover:bg-emerald-700">
+      Click me
+     </div> -->
+
+    <!-- BENAR  -->
+    <!-- <button class="bg-emerald-400 hover:bg-blue-700 transition-colors duration-200 w-64 p-4">
+        Click me
+      </button> -->
+
+    <!-- GRID DENGAN ITEM YANG OVERFLOW -->
+
+    <!-- SALAH - item keluar dari grid -->
+    <!-- <div class="bg-emerald-300 grid grid-cols-3 gap-4">
+      <div class="w-96">Content</div> <!-- overflow keluar grid/trlalu lebar --
+    </div> -->
+
+    <!-- BENAR - biarkan grid atur width -->
+    <!-- <div class="bg-emerald-300 grid grid-cols-3 gap-4">
+      <div class="">Content</div> <!-- otomtis 1/3 dr parent -- -->
+    <!-- </div> -->
+
+    <!-- atau pke min-w-0 utk force fit -->
+    <!-- <div class="bg-emerald-300 grid grid-cols-3 gap-4">
+      <div class="min-w-0">
+        <p class="truncate">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
+          voluptatem in, quisquam itaque et error eaque dolores amet
+          perspiciatis culpa! Necessitatibus dignissimos quam impedit culpa
+          iure! Itaque, recusandae aliquid. Nisi. Facilis, et? Necessitatibus
+          sed nemo hic sapiente excepturi vitae possimus exercitationem itaque
+          dolore. Dolore odio autem esse consectetur, natus quos cum recusandae
+          necessitatibus mollitia? Possimus placeat quisquam ad reprehenderit
+          at. Reprehenderit laborum cumque nostrum. Vitae mollitia vel, quis, at
+          suscipit facilis accusamus atque nihil consequatur corrupti iusto
+          tenetur quae temporibus blanditiis! Quasi voluptatem quo mollitia at
+          dolore rerum minus aliquid? Numquam dolore tempore at possimus quasi
+          nostrum velit. Sed possimus minus, debitis id illum, nisi aliquam
+          fuga, doloremque vitae amet reiciendis quos eligendi error ab nihil
+          velit nemo vero iure? Deleniti eligendi ipsa similique voluptatem
+          reprehenderit ducimus labore odio commodi unde. Minus rem tempore
+          officiis nobis, quam eos illum sunt mollitia odio ducimus aspernatur
+          similique adipisci reiciendis? Est, dignissimos similique!
+        </p>
+      </div>
+    </div> -->
+
+    <!-- HOVER STATE DI TOUCH DEVICE -->
+
+    <!-- SALAH - hover nempel di mobile -->
+    <!-- <button class="bg-emerald-400 hover:bg-emerald-600">Click</button> -->
+
+    <!-- BETTER - tambah active state -->
+    <!-- <button class="bg-emerald-300 hover:bg-red-400 active:bg-yellow-300">
+      Click
+    </button> -->
+
+    <!-- MULTIPLE TEXT ALIGNMENT -->
+
+    <!-- SALAH - text center ga center elemen -->
+    <!-- <div class="text center bg-emerald-300 w-1/2">
+      <button class="bg-blue-400 rounded-lg px-4 py-2">Click me</button>
+    </div> -->
+
+    <!-- BEANAR - center elemen pakai flex -->
+    <!-- <div class="flex justify-center bg-emerald-300 w-1/2">
+      <button class="bg-blue-300 px-4 py-2">Click me</button>
+    </div> -->
+  </body>
+</html>
